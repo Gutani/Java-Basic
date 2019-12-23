@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class exercicio3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int tipo = sc.nextInt();
+		int contA = 0, contG = 0, contD = 0;
+		while(tipo>0 && tipo<5) {
+			if(tipo==1) {
+				System.out.println();
+				contA++;
+			}else if(tipo==2) {
+				System.out.println();
+				contG++;
+			}else if(tipo==3) {
+				System.out.println();
+				contD++;
+			}else if(tipo==4) {
+				System.out.println(contA);
+				System.out.println(contG);
+				System.out.println(contD);
+				break;
+			}
+			}
+		System.out.println("Muito Obrigado!");
+		sc.close();
+	}
+
+}

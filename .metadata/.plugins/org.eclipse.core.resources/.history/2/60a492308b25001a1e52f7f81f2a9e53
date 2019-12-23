@@ -1,0 +1,54 @@
+package application;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Locale;
+
+import entities.Employee;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+	
+		List<Employee> list = new ArrayList<>();
+		//Leitura dos dados e informações essenciais
+		System.out.println("How many employees will be registered?");
+		int number = sc.nextInt();
+		
+		for(int i=0; i<number; i++) {
+			System.out.print("Qual é o ID? ");
+			int id = sc.nextInt();
+			System.out.print("Qual é o nome? ");
+			sc.nextLine();
+			String name = sc.nextLine();
+			System.out.print("Qual é o salario? ");
+			double salary = sc.nextDouble();
+			
+			list.add(new Employee(name, id, salary));
+		}
+		
+		//Incremento de Salário
+		System.out.println("Enter the employee id that will have salary increase: ");
+		int id = sc.nextInt();
+		Employee emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		if(emp == null) {
+			System.out.println("ID NULO");
+		}else {
+			System.out.println("Entre a porcentagem: ");
+			double percent = sc.nextDouble();
+			emp.Increase(percent);
+		}
+		
+		//Listagem de Funionários
+		System.out.println("O aumento foi realizado para o funcionário de dados: " + list);
+		System.out.println("Lista de Funcionários");
+		for(Employee obj : list) {
+			System.out.println(obj);
+		}
+		sc.close();
+	}
+
+}

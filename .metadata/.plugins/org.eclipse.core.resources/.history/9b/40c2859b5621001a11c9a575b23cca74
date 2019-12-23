@@ -1,0 +1,16 @@
+package entities;
+
+public class Rectangle {
+	public double width; //publicos pois podem interagir com outras classes
+	public double height;
+	
+	public double area() {
+		return width*height;
+	}
+	public double perimeter() {
+		return width + width + height + height;
+	}
+	public double diagonal() {
+		return Math.pow(width, 2) + Math.pow(height, 2);
+	}
+}
